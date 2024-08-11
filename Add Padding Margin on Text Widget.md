@@ -9,7 +9,7 @@ In this tutorial, we'll cover how to add padding and margin to a `Text` widget i
 
 ## 2. **Adding Padding to a Text Widget**
 
-   You can easily add padding to a `Text` widget by wrapping it inside a `Padding` widget.
+You can easily add padding to a `Text` widget by wrapping it inside a `Padding` widget.
 
 ### **Code Example:**
 
@@ -48,7 +48,7 @@ In this tutorial, we'll cover how to add padding and margin to a `Text` widget i
 
 ## 3. **Adding Margin to a Text Widget**
 
-   Unlike padding, Flutter doesn’t have a direct `Margin` widget. Instead, you use a `Container` widget to create margins around your `Text` widget.
+Unlike padding, Flutter doesn’t have a direct `Margin` widget. Instead, you use a `Container` widget to create margins around your `Text` widget.
 
 ### **Code Example:**
 
@@ -87,7 +87,7 @@ In this tutorial, we'll cover how to add padding and margin to a `Text` widget i
 
 ## 4. **Combining Padding and Margin**
 
-   You can combine both padding and margin in the same widget by using a `Container` with both properties.
+You can combine both padding and margin in the same widget by using a `Container` with both properties.
 
 ### **Code Example:**
 
