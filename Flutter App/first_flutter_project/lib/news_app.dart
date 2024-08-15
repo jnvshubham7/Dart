@@ -51,6 +51,7 @@ class _NewsGridState extends State<NewsGrid> {
               return NewsCard(
                 imageUrl: article['urlToImage'] ?? '',
                 title: article['title'] ?? 'No Title',
+                color: Colors.primaries[index % Colors.primaries.length],
                 onTap: () {
                   Navigator.push(
                     context,

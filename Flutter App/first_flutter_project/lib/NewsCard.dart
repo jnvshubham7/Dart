@@ -4,8 +4,9 @@ class NewsCard extends StatelessWidget {
   final String imageUrl;
   final String title;
   final VoidCallback onTap;
+  final Color color;
 
-  NewsCard({required this.imageUrl, required this.title, required this.onTap});
+  NewsCard({required this.imageUrl, required this.title, required this.onTap, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +16,25 @@ class NewsCard extends StatelessWidget {
         cursor: SystemMouseCursors.click,
         child: Container(
           decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                blurRadius: 10,
-                offset: const Offset(0, 5),
-              ),
-            ],
+
+
+            //how to add border with dynamic color differnt for each card
+
+            //add radius to the border
+
+            border: Border.all(color: color, width: 2),
+            borderRadius: BorderRadius.circular(15),
+
+
+
+         
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.green.withOpacity(0.2),
+            //     blurRadius: 10,
+            //     offset: const Offset(0, 5),
+            //   ),
+            // ],
           ),
           child: Card(
             elevation: 4,
