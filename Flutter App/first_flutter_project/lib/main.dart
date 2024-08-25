@@ -1,77 +1,52 @@
 import 'package:flutter/material.dart';
 
-
-
-
-void main() {
-  runApp(MaterialApp(
-    home: ValidationDemo(),
-  ));
-}
-
-class ValidationDemo extends StatefulWidget {
+class MyStatefulWidget extends StatefulWidget {
   @override
-  _ValidationDemoState createState() => _ValidationDemoState();
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
 }
 
-class _ValidationDemoState extends State<ValidationDemo> {
-  final _formKey = GlobalKey<FormState>();
-  String? _name;
-  String? _email;
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Form Validation Demo'),
+        title: Text('Stateful Widget Example'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: <Widget>[
-              TextFormField(
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your name';
-                  }
-                  return null;
-                },
-                onSaved: (value) => _name = value,
-                decoration: InputDecoration(
-                  labelText: 'Name',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              TextFormField(
-                validator: (value) {
-                  if (value == null || !value.contains('@')) {
-                    return 'Please enter a valid email';
-                  }
-                  return null;
-                },
-                onSaved: (value) => _email = value,
-                decoration: InputDecoration(
-                  labelText: 'Email',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              ElevatedButton(
-                child: Text('Submit'),
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
-                    print('Form submitted');
-                  } else {
-                    print('Form is not valid');
-                  }
-                },
-              ),
-            ],
-          ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+
+              style: TextStyle( fontSize: 50,color: Colors.red),
+              // style: Theme.of(context).textTheme.,
+            ),
+          ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
       ),
     );
   }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: MyStatefulWidget(),
+  ));
 }
