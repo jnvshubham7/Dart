@@ -1,52 +1,52 @@
 import 'package:flutter/material.dart';
 
-class MyStatefulWidget extends StatefulWidget {
-  @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+void main() {
+  runApp(MyApp());
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Stateful Widget Example'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-
-              style: TextStyle( fontSize: 50,color: Colors.red),
-              // style: Theme.of(context).textTheme.,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+    return MaterialApp(
+      title: 'Flutter Dialog Example ',
+      home: MyHomePage(),
     );
   }
 }
 
-void main() {
-  runApp(MaterialApp(
-    home: MyStatefulWidget(),
-  ));
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Flutter Dialog Example'),
+      ),
+      body: Stack(
+  alignment: Alignment.center,
+  children: <Widget>[
+    Container(
+      width: 200,
+      height: 200,
+      color: Colors.red,
+    ),
+    Container(
+      width: 150,
+      height: 150,
+      color: Colors.green,
+    ),
+    Positioned(
+      bottom: 10,
+      right: 10,
+      child: Container(
+        width: 100,
+        height: 100,
+        color: Colors.blue,
+      ),
+    ),
+  ],
+)
+    );
+  }
+
+
 }
